@@ -1,20 +1,12 @@
 ############################################################
 scihandlers.addClientToServe = (clientPublicKey, timestamp, signature) ->
-    result = {}
-    ###
-    
-{
-    "ok": true
-}
-
-
-    ###
-    return result
+    await auth.addClient(clientPublicKey)
+    return {ok:true}
 
 
 ############################################################
 scihandlers.getNodeId = (publicKey, timestamp, signature) ->
-    result = {}
+    return await auth.getSignedNodeId()
     ###
     
 {
@@ -25,20 +17,11 @@ scihandlers.getNodeId = (publicKey, timestamp, signature) ->
 
 
     ###
-    return result
 
 
 ############################################################
 scihandlers.startSession = (publicKey, timestamp, signature) ->
-    result = {}
-    ###
-    
-{
-    "ok": true
-}
-
-
-    ###
-    return result
+    await auth.startSession(publicKey)
+    return {ok:true}
 
 
