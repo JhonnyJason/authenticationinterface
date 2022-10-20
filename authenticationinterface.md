@@ -1,17 +1,19 @@
 [![hackmd-github-sync-badge](https://hackmd.io/qbdgtO9mQ2CagvyXdya6Uw/badge)](https://hackmd.io/qbdgtO9mQ2CagvyXdya6Uw)
 ###### tags: `documentation` `sci`
 
-# Authentication SCI v0.1
+# [authenticationinterface](https://github.com/JhonnyJason/authenticationinterface) v0.2
 The Authentication Interface is targeted on high throughput authenticated [client service communication](https://hackmd.io/DjnHMT0TSlmffXZTsm4f7A).
 
 It consists of a most minimal set of endpoints.
 
+## Master Functions
+These requests may only be sent by the master. 
+The `MasterKeyId` is known in beforehand by the Service as the veried signatures are our safety measure here.
+
 ### /addClientToServe
-This request may only be sent by a special client. This special client must be known to the service in beforehand. The `signature` is created by this special client.
 
-It would add the`clientPublicKey` to the `toServeList` of the corresponding service.
-
-In a second step the service would start to accept secrets from this Client.
+This will add the`clientPublicKey` to the `toServeList` of the corresponding service.
+In a second step the service starts to accept secrets from this client.
 
 #### request
 ```json
@@ -29,6 +31,49 @@ In a second step the service would start to accept secrets from this Client.
 }
 
 ```
+
+### /getClientsToServe
+This will retrieve the full `toServeList` of the corresponding service.
+
+#### request
+```json
+{
+    "timestamp": "...",
+    "signature": "..."
+}
+```
+
+#### response
+```json
+{
+    "toServeList": [...]
+}
+
+```
+
+### /removeClientToServe
+This will remove the given `clientPublicKey` from the `toServeList` of the corresponding service.
+In a second step the service stops accepting secrets from this client.
+
+#### request
+```json
+{
+    "clientPublicKey": "..."
+    "timestamp": "...",
+    "signature": "..."
+}
+```
+
+#### response
+```json
+{
+    "ok": true
+}
+
+```
+
+
+## Client Functions
 
 ### /getNodeId
 This function is mainly used by a new Client. When knowing the `serviceNodeId` the Client may accept secrets from the service.
