@@ -1,5 +1,5 @@
 ############################################################
-import * as h from "./secretmanagementhandlers"
+import * as h from "./authenticationhandlers"
 import { performance } from "node:perf_hooks"
 
 ############################################################
