@@ -1,22 +1,12 @@
 ############################################################
-import {
-    NUMBER, STRINGHEX64, STRINGHEX128, ARRAY, assertStructureAndTypes
-} from "./checkStructureAndTypes.js"
-
-############################################################
-service = null
-export setService = (serviceToSet) -> service = serviceToSet
+import *  as service from "./servicefunctions.js"
+import { responseValidators as validate} from "./authenticationschemas.js"
 
 ############################################################
 ok = true
 
 ############################################################
 #region Master Functions
-
-############################################################
-getClientsToServeResponse = {
-    ARRAY
-}
 
 ############################################################
 export addClientToServe = (req) ->
@@ -26,8 +16,10 @@ export addClientToServe = (req) ->
 ############################################################
 export getClientsToServe = (req) ->
     response = await service.getClientsToServe(req)
-    try assertStructureAndTypes(response, getClientsToServeResponse)
+
+    try validate.getClientsToServe(response)
     catch err then throw new Error("Error: service.getClientsToServe - response format: #{err.message}")
+
     return response
 
 ############################################################
@@ -37,21 +29,16 @@ export removeClientToServe = (req) ->
 
 #endregion
 
-
 ############################################################
 #region Client Functions
 
 ############################################################
-getNodeIdResponse = {
-    serverNodeId: STRINGHEX64
-    timestamp: NUMBER
-    signature: STRINGHEX128
-}
-############################################################
 export getNodeId = (req) ->
     response = await service.getSignedNodeId(req)
-    try assertStructureAndTypes(response, getNodeIdResponse)
+
+    try validate.getNodeId(response)
     catch err then throw new Error("Error: service.getSignedNodeId - response format: #{err.message}")
+
     return response
 
 
