@@ -1,25 +1,29 @@
-authenticationinterface = {}
+import { postData } from "thingy-network-base"
 
 ############################################################
-authenticationinterface.addClientToServe = (clientPublicKey, timestamp, signature) ->
+export addClientToServe = (sciURL, clientPublicKey, timestamp, signature) ->
     requestObject = { clientPublicKey, timestamp, signature }
-    interfaceServers = allModules.configmodule.interfaceServers
-    requestURL = interfaceServers["authenticationinterface"]+"/addClientToServe"
-    return @postData(requestURL, requestObject)
+    requestURL = sciURL+"/addClientToServe"
+    return postData(requestURL, requestObject)
 
-authenticationinterface.getNodeId = (publicKey, timestamp, signature) ->
+export getClientsToServe = (sciURL, timestamp, signature) ->
+    requestObject = { timestamp, signature }
+    requestURL = sciURL+"/getClientsToServe"
+    return postData(requestURL, requestObject)
+
+export remoceClientToServe = (sciURL, clientPublicKey, timestamp, signature) ->
+    requestObject = { clientPublicKey, timestamp, signature }
+    requestURL = sciURL+"/removeClientToServe"
+    return postData(requestURL, requestObject)
+
+
+############################################################
+export getNodeId = (sciURL, publicKey, timestamp, signature) ->
     requestObject = { publicKey, timestamp, signature }
-    interfaceServers = allModules.configmodule.interfaceServers
-    requestURL = interfaceServers["authenticationinterface"]+"/getNodeId"
-    return @postData(requestURL, requestObject)
+    requestURL = sciURL+"/getNodeId"
+    return postData(requestURL, requestObject)
 
-authenticationinterface.startSession = (publicKey, timestamp, signature) ->
+export startSession = (sciURL, publicKey, timestamp, signature) ->
     requestObject = { publicKey, timestamp, signature }
-    interfaceServers = allModules.configmodule.interfaceServers
-    requestURL = interfaceServers["authenticationinterface"]+"/startSession"
-    return @postData(requestURL, requestObject)
-
-#endregion
-
-    
-module.exports = authenticationinterface
+    requestURL = sciURL+"/startSession"
+    return postData(requestURL, requestObject)
