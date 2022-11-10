@@ -11,7 +11,7 @@ export getClientsToServe = (sciURL, timestamp, signature) ->
     requestURL = sciURL+"/getClientsToServe"
     return postData(requestURL, requestObject)
 
-export remoceClientToServe = (sciURL, clientPublicKey, timestamp, signature) ->
+export removeClientToServe = (sciURL, clientPublicKey, timestamp, signature) ->
     requestObject = { clientPublicKey, timestamp, signature }
     requestURL = sciURL+"/removeClientToServe"
     return postData(requestURL, requestObject)
