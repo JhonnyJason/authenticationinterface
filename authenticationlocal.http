@@ -5,6 +5,7 @@ content-type: application/json
 {
 "clientPublicKey": "...", 
 "timestamp": "...", 
+"nonce": "...",
 "signature": "..."
 }
 ### 
@@ -14,6 +15,7 @@ content-type: application/json
 {
 "publicKey": "...", 
 "timestamp": "...", 
+"nonce": "...",
 "signature": "..."
 }
 ### 
@@ -23,5 +25,6 @@ content-type: application/json
 {
 "publicKey": "...", 
 "timestamp": "...", 
+"nonce": "...",
 "signature": "..."
 }

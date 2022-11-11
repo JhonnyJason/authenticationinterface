@@ -18,8 +18,9 @@ In a second step the service starts to accept secrets from this client.
 #### request
 ```json
 {
-    "clientPublicKey": "..."
+    "clientPublicKey": "...",
     "timestamp": "...",
+    "nonce": "...",
     "signature": "..."
 }
 ```
@@ -39,6 +40,7 @@ This will retrieve the full `toServeList` of the corresponding service.
 ```json
 {
     "timestamp": "...",
+    "nonce": "...",
     "signature": "..."
 }
 ```
@@ -58,8 +60,9 @@ In a second step the service stops accepting secrets from this client.
 #### request
 ```json
 {
-    "clientPublicKey": "..."
+    "clientPublicKey": "...",
     "timestamp": "...",
+    "nonce": "...",
     "signature": "..."
 }
 ```
@@ -85,6 +88,7 @@ Here the `signature` is created by the client, which has to be on the `toServeLi
 {
     "publicKey": "...",
     "timestamp": "...",
+    "nonce": "...",
     "signature": "..."
 }
 ```
@@ -111,6 +115,7 @@ Here the `signature` is created by the client, which has to be on the `toServeLi
 {
     "publicKey": "...",
     "timestamp": "...",
+    "nonce": "...",
     "signature": "..."
 }
 ```
