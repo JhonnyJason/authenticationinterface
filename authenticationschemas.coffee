@@ -12,17 +12,20 @@ import {
 addClientToServeArguments = {
     clientPublicKey: STRINGHEX64
     timestamp: NUMBER
+    nonce: NUMBER
     signature: STRINGHEX128
 }
 ############################################################
 getClientsToServeArguments = {
     timestamp: NUMBER
+    nonce: NUMBER
     signature: STRINGHEX128
 }
 ############################################################
 removeClientToServeArguments = {
     clientPublicKey: STRINGHEX64
     timestamp: NUMBER
+    nonce: NUMBER
     signature: STRINGHEX128
 }
 
@@ -33,12 +36,14 @@ removeClientToServeArguments = {
 getNodeIdArguments = {
     publicKey: STRINGHEX64
     timestamp: NUMBER
+    nonce: NUMBER
     signature: STRINGHEX128
 }
 ############################################################
 startSessionArguments = {
     publicKey: STRINGHEX64
     timestamp: NUMBER
+    nonce: NUMBER
     signature: STRINGHEX128
 }
 
