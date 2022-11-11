@@ -10,7 +10,7 @@ ok = true
 
 ############################################################
 export addClientToServe = (req) ->
-    await service.addClient(req)
+    await service.addClientToServe(req)
     return {ok:true}
 
 ############################################################
@@ -24,7 +24,7 @@ export getClientsToServe = (req) ->
 
 ############################################################
 export removeClientToServe = (req) ->
-    await service.removeClient(req)
+    await service.removeClientToServe(req)
     return {ok:true}
 
 #endregion

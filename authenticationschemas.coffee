@@ -49,7 +49,7 @@ startSessionArguments = {
 
 ############################################################
 getClientsToServeResponse = {
-    ARRAY
+    toServeList: ARRAY
 }
 
 ############################################################
