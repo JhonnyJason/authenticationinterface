@@ -77,6 +77,9 @@ export removeClientToServe = (req, res) ->
 ############################################################
 export getNodeId = (req, res) ->
     start = performance.now()
+    console.log("- - - - -")
+    console.log("/getNodeId")
+    console.log(JSON.stringify(req.body))
 
     try validate.getNodeId(req.body)
     catch err then return res.status(400).send({error: "validation: #{err.message}"})
