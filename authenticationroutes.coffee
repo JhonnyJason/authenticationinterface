@@ -25,7 +25,7 @@ export addClientToServe = (req, res) ->
 
     end = performance.now()
     diffMS = end - start
-    console.log("/addClientToServe took #{diffMS}ms")
+    console.log("/addClientToServe took #{diffMS}ms\n")
     
     return res.send(response)
 
@@ -45,7 +45,7 @@ export getClientsToServe = (req, res) ->
 
     end = performance.now()
     diffMS = end - start
-    console.log("/getClientsToServe took #{diffMS}ms")
+    console.log("/getClientsToServe took #{diffMS}ms\n")
     
     return res.send(response)
 
@@ -65,7 +65,7 @@ export removeClientToServe = (req, res) ->
 
     end = performance.now()
     diffMS = end - start
-    console.log("/removeClientToServe took #{diffMS}ms")
+    console.log("/removeClientToServe took #{diffMS}ms\n")
     
     return res.send(response)
 
@@ -77,9 +77,6 @@ export removeClientToServe = (req, res) ->
 ############################################################
 export getNodeId = (req, res) ->
     start = performance.now()
-    console.log("- - - - -")
-    console.log("/getNodeId")
-    console.log(JSON.stringify(req.body))
 
     try validate.getNodeId(req.body)
     catch err then return res.status(400).send({error: "validation: #{err.message}"})
@@ -92,7 +89,7 @@ export getNodeId = (req, res) ->
     
     end = performance.now()
     diffMS = end - start
-    console.log("/getNodeId took #{diffMS}ms")
+    console.log("/getNodeId took #{diffMS}ms\n")
 
     return res.send(response)
 
@@ -112,7 +109,7 @@ export startSession = (req, res) ->
     
     end = performance.now()
     diffMS = end - start
-    console.log("/startSession took #{diffMS}ms")
+    console.log("/startSession took #{diffMS}ms\n")
 
     return res.send(response)
 
