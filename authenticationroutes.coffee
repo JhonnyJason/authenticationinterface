@@ -11,6 +11,7 @@ import *  as authentication from "./authenticationauthentication.js"
 
 ############################################################
 export addClientToServe = (req, res) ->
+    console.log(" - - - [start] - - - /addClientToServe\n")
     start = performance.now()
     
     try validate.addClientToServe(req.body)
@@ -25,12 +26,13 @@ export addClientToServe = (req, res) ->
 
     end = performance.now()
     diffMS = end - start
-    console.log("/addClientToServe took #{diffMS}ms\n")
+    console.log(" - - - [end] - - - /addClientToServe took #{diffMS}ms\n")
     
     return res.send(response)
 
 ############################################################
 export getClientsToServe = (req, res) ->
+    console.log(" - - - [start] - - - /getClientsToServe\n")
     start = performance.now()
     
     try validate.getClientsToServe(req.body)
@@ -45,12 +47,13 @@ export getClientsToServe = (req, res) ->
 
     end = performance.now()
     diffMS = end - start
-    console.log("/getClientsToServe took #{diffMS}ms\n")
+    console.log(" - - - [end] - - - /getClientsToServe took #{diffMS}ms\n")
     
     return res.send(response)
 
 ############################################################
 export removeClientToServe = (req, res) ->
+    console.log(" - - - [start] - - - /removeClientToServe\n")
     start = performance.now()
     
     try validate.removeClientToServe(req.body)
@@ -65,7 +68,7 @@ export removeClientToServe = (req, res) ->
 
     end = performance.now()
     diffMS = end - start
-    console.log("/removeClientToServe took #{diffMS}ms\n")
+    console.log(" - - - [end] - - - /removeClientToServe took #{diffMS}ms\n")
     
     return res.send(response)
 
@@ -76,6 +79,7 @@ export removeClientToServe = (req, res) ->
 
 ############################################################
 export getNodeId = (req, res) ->
+    console.log(" - - - [start] - - - /getNodeId\n")
     start = performance.now()
 
     try validate.getNodeId(req.body)
@@ -89,12 +93,14 @@ export getNodeId = (req, res) ->
     
     end = performance.now()
     diffMS = end - start
-    console.log("/getNodeId took #{diffMS}ms\n")
+    console.log(" - - - [end] - - - /getNodeId took #{diffMS}ms\n")
 
     return res.send(response)
 
 ############################################################
 export startSession = (req, res) ->
+    console.log(" - - - [start] - - - /startSession\n")
+
     start = performance.now()
 
     try validate.startSession(req.body)
@@ -109,7 +115,7 @@ export startSession = (req, res) ->
     
     end = performance.now()
     diffMS = end - start
-    console.log("/startSession took #{diffMS}ms\n")
+    console.log(" - - - [end] - - - /startSession took #{diffMS}ms\n")
 
     return res.send(response)
 

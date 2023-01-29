@@ -44,8 +44,8 @@ export getNodeId = (req) ->
 
 ############################################################
 export startSession = (req) ->
-    console.log("/startSession")
-    console.log(Object.keys(req))
+    # console.log("/startSession")
+    # console.log(Object.keys(req))
     
     await service.startSession(req)
     return {ok}
