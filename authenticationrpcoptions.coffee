@@ -29,7 +29,8 @@ export addClientToServe = {
 ############################################################
 export getClientsToServe = {
     authOptions: { masterSignature }
-    argsSchema: null
+    # argsSchema: null - legal to have empty schema? not for now :-)
+    argsSchema: {}
     execute: rpcFunctions.getClientsToServe
 }
 
