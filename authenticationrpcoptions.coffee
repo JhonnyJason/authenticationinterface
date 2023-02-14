@@ -1,6 +1,7 @@
 ############################################################
 import * as rpcFunctions from "./rpcfunctions.js"
 import { clientSignature, masterSignature } from "./rpcauthenticate.js"
+# import { serviceSignature } from "./rpcresponseauthenticate.js"
 
 ############################################################
 # NUMBER, BOOLEAN, ARRAY, OBJECT,
