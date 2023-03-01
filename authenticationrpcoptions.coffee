@@ -1,7 +1,7 @@
 ############################################################
 import * as rpcFunctions from "./rpcfunctions.js"
 import { clientSignature, masterSignature } from "./rpcauthenticate.js"
-# import { serviceSignature } from "./rpcresponseauthenticate.js"
+import { serviceSignature } from "./rpcresponseauthenticate.js"
 
 ############################################################
 # NUMBER, BOOLEAN, ARRAY, OBJECT,
@@ -25,6 +25,9 @@ export addClientToServe = {
         clientPublicKey: STRINGHEX64
     }
     execute: rpcFunctions.addClientToServe
+    responseAuth: {
+        masterSignature: serviceSignature
+    }
 }
 
 ############################################################
@@ -33,6 +36,9 @@ export getClientsToServe = {
     # argsSchema: null - legal to have empty schema? not for now :-)
     argsSchema: {}
     execute: rpcFunctions.getClientsToServe
+    responseAuth: {
+        masterSignature: serviceSignature
+    }
 }
 
 ############################################################
@@ -42,6 +48,9 @@ export removeClientToServe = {
         clientPublicKey: STRINGHEX64
     }
     execute: rpcFunctions.removeClientToServe
+    responseAuth: {
+        masterSignature: serviceSignature
+    }
 }
 
 #endregion
@@ -54,6 +63,10 @@ export getNodeId = {
     authOptions: { masterSignature, clientSignature }
     argsSchema: null
     execute: rpcFunctions.removeClientToServe
+    responseAuth: {
+        masterSignature: serviceSignature
+        clientSignature: serviceSignature
+    }
 }
 
 ############################################################
@@ -64,6 +77,9 @@ export startSession = {
         clientPublicKey: STRINGHEX64
     }
     execute: rpcFunctions.removeClientToServe
-
+    responseAuth: {
+        masterSignature: serviceSignature
+        clientSignature: serviceSignature
+    }
 }
 #endregion
