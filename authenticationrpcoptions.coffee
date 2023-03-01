@@ -1,7 +1,7 @@
 ############################################################
 import * as rpcFunctions from "./rpcfunctions.js"
 import { clientSignature, masterSignature } from "./rpcauthenticate.js"
-import { serviceSignature } from "./rpcresponseauthenticate.js"
+import { serviceSignatureAuth } from "./rpcresponseauthenticate.js"
 
 ############################################################
 # NUMBER, BOOLEAN, ARRAY, OBJECT,
@@ -26,7 +26,7 @@ export addClientToServe = {
     }
     execute: rpcFunctions.addClientToServe
     responseAuth: {
-        masterSignature: serviceSignature
+        masterSignature: serviceSignatureAuth
     }
 }
 
@@ -37,7 +37,7 @@ export getClientsToServe = {
     argsSchema: {}
     execute: rpcFunctions.getClientsToServe
     responseAuth: {
-        masterSignature: serviceSignature
+        masterSignature: serviceSignatureAuth
     }
 }
 
@@ -49,7 +49,7 @@ export removeClientToServe = {
     }
     execute: rpcFunctions.removeClientToServe
     responseAuth: {
-        masterSignature: serviceSignature
+        masterSignature: serviceSignatureAuth
     }
 }
 
@@ -64,8 +64,8 @@ export getNodeId = {
     argsSchema: null
     execute: rpcFunctions.removeClientToServe
     responseAuth: {
-        masterSignature: serviceSignature
-        clientSignature: serviceSignature
+        masterSignature: serviceSignatureAuth
+        clientSignature: serviceSignatureAuth
     }
 }
 
@@ -78,8 +78,8 @@ export startSession = {
     }
     execute: rpcFunctions.removeClientToServe
     responseAuth: {
-        masterSignature: serviceSignature
-        clientSignature: serviceSignature
+        masterSignature: serviceSignatureAuth
+        clientSignature: serviceSignatureAuth
     }
 }
 #endregion
