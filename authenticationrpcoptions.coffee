@@ -62,7 +62,7 @@ export removeClientToServe = {
 export getNodeId = {
     authOptions: { masterSignature, clientSignature }
     argsSchema: null
-    execute: rpcFunctions.removeClientToServe
+    execute: -> return
     responseAuth: {
         masterSignature: serviceSignatureAuth
         clientSignature: serviceSignatureAuth
@@ -74,9 +74,9 @@ export startSession = {
     authOptions: { masterSignature, clientSignature }
     argsSchema: {
         type: STRING
-        clientPublicKey: STRINGHEX64
+        sessionName: STRING
     }
-    execute: rpcFunctions.removeClientToServe
+    execute: rpcFunctions.startSession
     responseAuth: {
         masterSignature: serviceSignatureAuth
         clientSignature: serviceSignatureAuth
