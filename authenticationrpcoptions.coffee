@@ -74,7 +74,7 @@ export startSession = {
     authOptions: { masterSignature, clientSignature }
     argsSchema: {
         type: STRING
-        sessionName: STRING
+        name: STRING
     }
     execute: rpcFunctions.startSession
     responseAuth: {
