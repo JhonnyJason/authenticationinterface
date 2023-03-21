@@ -82,4 +82,32 @@ export startSession = {
         clientSignature: serviceSignatureAuth
     }
 }
+
+############################################################
+export startSession = {
+    authOptions: { masterSignature, clientSignature }
+    argsSchema: {
+        type: STRING
+        name: STRING
+    }
+    execute: rpcFunctions.startSession
+    responseAuth: {
+        masterSignature: serviceSignatureAuth
+        clientSignature: serviceSignatureAuth
+    }
+}
+
+############################################################
+export stopSession = {
+    authOptions: { masterSignature, clientSignature }
+    argsSchema: {
+        type: STRING
+        name: STRING
+    }
+    execute: rpcFunctions.stopSession
+    responseAuth: {
+        masterSignature: serviceSignatureAuth
+        clientSignature: serviceSignatureAuth
+    }
+}
 #endregion
