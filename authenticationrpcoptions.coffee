@@ -1,7 +1,7 @@
 ############################################################
 import * as rpcFunctions from "./rpcfunctions.js"
 import { clientSignature, masterSignature } from "./rpcauthenticate.js"
-import { serviceSignatureAuth } from "./rpcresponseauthenticate.js"
+import { addSignatureAuth } from "./rpcresponseauthenticate.js"
 
 ############################################################
 # NUMBER, BOOLEAN, ARRAY, OBJECT,
@@ -26,7 +26,7 @@ export addClientToServe = {
     }
     execute: rpcFunctions.addClientToServe
     responseAuth: {
-        masterSignature: serviceSignatureAuth
+        masterSignature: addSignatureAuth
     }
 }
 
@@ -37,7 +37,7 @@ export getClientsToServe = {
     argsSchema: {}
     execute: rpcFunctions.getClientsToServe
     responseAuth: {
-        masterSignature: serviceSignatureAuth
+        masterSignature: addSignatureAuth
     }
 }
 
@@ -49,7 +49,7 @@ export removeClientToServe = {
     }
     execute: rpcFunctions.removeClientToServe
     responseAuth: {
-        masterSignature: serviceSignatureAuth
+        masterSignature: addSignatureAuth
     }
 }
 
@@ -64,8 +64,8 @@ export getNodeId = {
     argsSchema: null
     execute: -> return
     responseAuth: {
-        masterSignature: serviceSignatureAuth
-        clientSignature: serviceSignatureAuth
+        masterSignature: addSignatureAuth
+        clientSignature: addSignatureAuth
     }
 }
 
@@ -78,24 +78,24 @@ export startSession = {
     }
     execute: rpcFunctions.startSession
     responseAuth: {
-        masterSignature: serviceSignatureAuth
-        clientSignature: serviceSignatureAuth
+        masterSignature: addSignatureAuth
+        clientSignature: addSignatureAuth
     }
 }
 
-############################################################
-export startSession = {
-    authOptions: { masterSignature, clientSignature }
-    argsSchema: {
-        type: STRING
-        name: STRING
-    }
-    execute: rpcFunctions.startSession
-    responseAuth: {
-        masterSignature: serviceSignatureAuth
-        clientSignature: serviceSignatureAuth
-    }
-}
+# ############################################################
+# export startSession = {
+#     authOptions: { masterSignature, clientSignature }
+#     argsSchema: {
+#         type: STRING
+#         name: STRING
+#     }
+#     execute: rpcFunctions.startSession
+#     responseAuth: {
+#         masterSignature: addSignatureAuth
+#         clientSignature: addSignatureAuth
+#     }
+# }
 
 ############################################################
 export stopSession = {
@@ -106,8 +106,8 @@ export stopSession = {
     }
     execute: rpcFunctions.stopSession
     responseAuth: {
-        masterSignature: serviceSignatureAuth
-        clientSignature: serviceSignatureAuth
+        masterSignature: addSignatureAuth
+        clientSignature: addSignatureAuth
     }
 }
 #endregion
